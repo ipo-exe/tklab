@@ -1,4 +1,3 @@
-import datetime
 import tkinter
 from tkinter import filedialog as fd
 from tkinter import messagebox
@@ -6,11 +5,7 @@ from tkinter import END, RIGHT, LEFT, BooleanVar, DISABLED, NORMAL
 import webbrowser
 import pandas as pd
 import backend
-from time import sleep
-from datetime import datetime
-import numpy as np
 
-# >> functions
 
 def load_metadata():
     print('todo')
