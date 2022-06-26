@@ -11,6 +11,14 @@ def load_metadata():
     print('todo')
 
 
+def report(s_msg):
+    # report
+    listbox_log.config(state=NORMAL)
+    s_report = ' {} >> {}'.format(backend.timestamp_log(), s_msg)
+    listbox_log.insert(END, s_report)
+    listbox_log.config(state=DISABLED)
+
+
 def clear_metadata():
     print('todo')
     # clear entries
@@ -109,10 +117,7 @@ def update_folder(n_entry=0):
     if len(s_folderpath) == 0:
         s_folderpath = 'Empty'
     # report
-    listbox_log.config(state=NORMAL)
-    s_report = '{} >> {} : {}'.format(backend.timestamp_log(), lst_labels_wplc[n_entry], s_folderpath)
-    listbox_log.insert(END, s_report)
-    listbox_log.config(state=DISABLED)
+    report(s_msg='{} : {}'.format(lst_labels_wplc[n_entry], s_folderpath))
 
 
 def update_file(n_entry=0):
@@ -122,11 +127,7 @@ def update_file(n_entry=0):
     s_filepath = dct_etr_input[lst_lbls_inpfiles[n_entry]].get()
     if len(s_filepath) == 0:
         s_filepath = 'Empty'
-    # report
-    listbox_log.config(state=NORMAL)
-    s_report = '{} >> {} : {}'.format(backend.timestamp_log(), lst_lbls_inpfiles[n_entry], s_filepath)
-    listbox_log.insert(END, s_report)
-    listbox_log.config(state=DISABLED)
+    report(s_msg='{} : {}'.format(lst_lbls_inpfiles[n_entry], s_filepath))
 
 
 def pick_folder(n_entry=0):
@@ -140,14 +141,8 @@ def pick_folder(n_entry=0):
             # change entry
             dct_etr_wplc[lst_labels_wplc[n_entry]].delete(0, END) # clear
             dct_etr_wplc[lst_labels_wplc[n_entry]].insert(0, s_folderpath) # insert
+            update_folder(n_entry=n_entry)
             break
-    # update run status
-    authorize()
-    # report
-    listbox_log.config(state=NORMAL)
-    s_report = '{} >> {} : {}'.format(backend.timestamp_log(), lst_labels_wplc[n_entry], s_folderpath)
-    listbox_log.insert(END, s_report)
-    listbox_log.config(state=DISABLED)
 
 
 def pick_file(tpl_file_type, s_initialdir, n_entry=0):
@@ -164,17 +159,17 @@ def pick_file(tpl_file_type, s_initialdir, n_entry=0):
         b_ans = messagebox.askokcancel(title='Confirm file', message=s_filepath)
         if b_ans:
             # change entry
-            dct_etr_input[lst_lbls_inpfiles[n_entry]].delete(0, END) # clear
-            dct_etr_input[lst_lbls_inpfiles[n_entry]].insert(0, s_filepath) # insert
-            update_file(n_entry=0)
+            dct_etr_input[lst_lbls_inpfiles[n_entry]].delete(0, END)  # clear
+            dct_etr_input[lst_lbls_inpfiles[n_entry]].insert(0, s_filepath)  # insert
+            update_file(n_entry=n_entry)
             break
 
 
 def print_log_header():
     # report
     listbox_log.config(state=NORMAL)
-    listbox_log.insert(END, '************* Basic tool *************')
-    s_report = '{} >>> Initiate session'.format(backend.timestamp_log())
+    listbox_log.insert(END, ' ************* Basic tool *************')
+    s_report = ' {} >>> Initiate session'.format(backend.timestamp_log())
     listbox_log.insert(END, s_report)
     listbox_log.config(state=DISABLED)
 
