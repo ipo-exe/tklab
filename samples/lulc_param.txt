@@ -1,0 +1,4 @@
+Id;   Name;  Alias;  Color; f_cpmax; f_sfmax; f_rzd
+1;   Water;     Wt;   blue;     1.0;     1.0;   1.0
+2;   Crops;     Cr;    red;     1.1;     1.3;   1.2
+3;  Forest;     Fr;  green;     1.9;     1.5;   2.0
