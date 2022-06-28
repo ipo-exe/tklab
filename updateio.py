@@ -58,7 +58,7 @@ lst_file = list()
 
 # file index
 s_file_url =  'https://github.com/ipo-exe/tklab/blob/main/iofiles.md'
-lst_file.append(' - [Imported files]({}#importedfiles)\n'.format(s_file_url))
+lst_file.append(' - [Imported files]({}#imported-files)\n'.format(s_file_url))
 
 lst_file.append('# Imported files')
 
