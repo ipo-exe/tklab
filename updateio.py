@@ -51,9 +51,16 @@ df_import = df_io.query('Source == "imported by user"')
 df_output = df_import.query('Source == "process output"')
 df_keys = pd.read_csv('keys.csv', sep=';')
 
-s_samples_url = 'https://github.com/ipo-exe/tklab/blob/main/samples'
+s_dir_samples_url = 'https://github.com/ipo-exe/tklab/blob/main/samples'
 
 lst_file = list()
+
+
+# file index
+s_file_url =  'https://github.com/ipo-exe/tklab/blob/main/iofiles.md'
+lst_file.append(' - [Imported files]({}#importedfiles)\n'.format(s_file_url))
+
+lst_file.append('# Imported files')
 
 for i in range(len(df_import)):
     s_filename = df_import['Name'].values[i]
@@ -89,7 +96,7 @@ for i in range(len(df_import)):
 
 
     lst_file.append(' - **File sample**: [{}.{}]({}/{}.{});\n'.format(s_filename, s_extension,
-                                                                    s_samples_url, s_filename, s_extension))
+                                                                      s_dir_samples_url, s_filename, s_extension))
     lst_file.append(' - **Formating example**:\n'.format(s_descrp))
     if s_format == 'Time Series' or s_format == 'Data Table':
         s_path = './samples/{}.{}'.format(s_filename, s_extension)

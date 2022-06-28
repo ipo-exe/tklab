@@ -7,6 +7,11 @@ import pandas as pd
 import backend
 
 
+def callsub():
+    import subprocess
+    subprocess.run(["inkscape"])
+
+
 def load_metadata():
     print('todo')
 
@@ -110,23 +115,25 @@ def open_about(n_entry=0):
 
 
 def update_folder(n_entry=0):
-    global df_meta
+    global df_meta, lst_labels_wplc
     # update run status
     authorize()
     s_folderpath = dct_etr_wplc[lst_labels_wplc[n_entry]].get()
     if len(s_folderpath) == 0:
         s_folderpath = 'Empty'
+        messagebox.showwarning(title='Warning', message='Empty entry')
     # report
     report(s_msg='{} : {}'.format(lst_labels_wplc[n_entry], s_folderpath))
 
 
 def update_file(n_entry=0):
-    global df_meta
+    global df_meta, lst_lbls_inpfiles
     # update run status
     authorize()
     s_filepath = dct_etr_input[lst_lbls_inpfiles[n_entry]].get()
     if len(s_filepath) == 0:
         s_filepath = 'Empty'
+        messagebox.showwarning(title='Warning', message='Empty entry')
     report(s_msg='{} : {}'.format(lst_lbls_inpfiles[n_entry], s_filepath))
 
 
@@ -223,7 +230,7 @@ menu_file.add_command(label='New ', image=img_file, compound=LEFT,
                       command=clear_metadata)
 menu_file.add_command(label='Open', image=img_open, compound=LEFT,
                       foreground=color_fg, activeforeground=color_fg,
-                      command=load_metadata)
+                      command=callsub)
 menu_file.add_command(label='Save', image=img_save, compound=LEFT, foreground=color_fg, activeforeground=color_fg)
 menu_file.add_command(label='Save As', image=img_save, compound=LEFT, foreground=color_fg, activeforeground=color_fg)
 menu_file.add_separator()
