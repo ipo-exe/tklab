@@ -10,7 +10,7 @@ map_hand;asc;imported by user;Raster Map;Map of the Height Above Nearest Drainag
 map_slope;asc;imported by user;Raster Map;Map of terrain slope;`uint16` (unsigned 16-bit integer);degrees;1000;Voids not allowed;none;none;none
 map_ET_obs_{Date};asc;imported by user;Raster Map;Map of observed Evapotranspiration in Date={Date};`int16` (16-bit integer);meters;1000;Voids not allowed;none;none;none
 series_obs;txt;imported by user;Time Series;Time series of observed hydrologic processes;none;none;none;none;Date & P & T & IRA & IRI;Q_obs & Flow_obs & ET_obs & f_cpmax_{Alias} & f_sfmax_{Alias} & f_roots_{Alias};none
-param_shru;txt;process output;Data Table;Table of SHRU parameters;none;none;none;none;Id & Name & Alias & f_cpmax & f_sfmax & f_roots & f_perv & usle_C & usle_P & load_N & load_P &  f_ksat & f_rho & usle_K;;none
+param_shru;txt;process output;Data Table;Table of SHRU parameters;none;none;none;none;Id & Name & Alias & f_cpmax & f_sfmax & f_roots & f_perv & usle_C & usle_P & load_N & load_P &  f_ksat & f_rho & usle_K;none;none
 hist2d_extent;txt;process output;Data Table;2-D histogram (counting matrix) of spatial units within the full map extent;none;none;none;none;none;none;none
 hist2d_basin;txt;process output;Data Table;2-D histogram (counting matrix) of spatial units within the basin extent;none;none;none;none;none;none;none
 zmap_{Var}_{Date};txt;process output;Data Table;ZMap of simulated Var={Var} in Date={Date} (ex: zmap_Inf_2022-02-01);none;none;none;none;none;none;none

@@ -1,3 +1,4 @@
+import os.path
 import tkinter
 from tkinter import filedialog as fd
 from tkinter import messagebox
@@ -8,6 +9,7 @@ import backend
 
 
 def callsub():
+
     import subprocess
     subprocess.run(["inkscape"])
 
@@ -17,15 +19,23 @@ def load_metadata():
 
 
 def report(s_msg):
+    """
+    report string message to log listbox
+    :param s_msg:
+    :return:
+    """
     # report
     listbox_log.config(state=NORMAL)
-    s_report = ' {} >> {}'.format(backend.timestamp_log(), s_msg)
+    s_report = ' {} >>> {}'.format(backend.timestamp_log(), s_msg)
     listbox_log.insert(END, s_report)
     listbox_log.config(state=DISABLED)
 
 
 def clear_metadata():
-    print('todo')
+    """
+    flush out tool metadata
+    :return:
+    """
     # clear entries
     for k in dct_etr_wplc:
         dct_etr_wplc[k].delete(0, END)
@@ -41,6 +51,10 @@ def clear_metadata():
 
 
 def run():
+    """
+    run button routine
+    :return:
+    """
     global df_meta, b_ok_to_run
     authorize()
     if b_ok_to_run:
@@ -71,37 +85,60 @@ def get_entry_metadata():
     get from entries all metadata
     :return:
     """
-    global df_meta
+    global df_meta, lst_lbls_wplc, dct_etr_wplc, lst_lbls_inpfiles, dct_etr_input, lst_lbls_params, dct_var_params
     lst_metadata = list()
+    lst_entry_n = list()
+    lst_category = list()
     lst_values = list()
+    # append timestamp
     lst_metadata.append('Timestamp')
-    lst_values.append(backend.timestamp())
-    for keys in dct_etr_wplc:
-        lst_metadata.append(keys)
-        lst_values.append(dct_etr_wplc[keys].get())
-    for keys in dct_etr_input:
-        lst_metadata.append(keys)
-        lst_values.append(dct_etr_input[keys].get())
-    for keys in dct_var_params:
-        lst_metadata.append(keys)
-        lst_values.append(dct_var_params[keys].get())
-    df_meta = pd.DataFrame({'Metadata': lst_metadata, 'Value':lst_values})
+    lst_entry_n.append('-')
+    lst_category.append('last update')
+    lst_values.append(backend.timestamp_log())
+    # update folders
+    for i in range(len(lst_lbls_wplc)):
+        s_lcl_key = lst_lbls_wplc[i]
+        lst_metadata.append(s_lcl_key)
+        lst_entry_n.append(str(i))
+        lst_category.append('directory')
+        lst_values.append(dct_etr_wplc[s_lcl_key].get())
+    # update files
+    for i in range(len(lst_lbls_inpfiles)):
+        s_lcl_key = lst_lbls_inpfiles[i]
+        lst_metadata.append(s_lcl_key)
+        lst_entry_n.append(str(i))
+        lst_category.append('file')
+        lst_values.append(dct_etr_input[s_lcl_key].get())
+    # update params
+    for i in range(len(lst_lbls_params)):
+        s_lcl_key = lst_lbls_params[i]
+        lst_metadata.append(s_lcl_key)
+        lst_entry_n.append(str(i))
+        lst_category.append('parameter')
+        lst_values.append(dct_var_params[s_lcl_key].get())
+    # re-instantiate dataframe
+    df_meta = pd.DataFrame({'Metadata': lst_metadata,
+                            'Category': lst_category,
+                            'Entry': lst_entry_n,
+                            'Value':lst_values})
+    print(df_meta.to_string())
 
 
 def authorize():
     """
-    evaluate if is ok to run -- all metadata must be on
+    evaluate if is ok to run -- all metadata must be OK
     :return:
     """
     global b_ok_to_run, df_meta
     b_ok_to_run = True
     # update metadata dataframe
     get_entry_metadata()
-    # compute
+    # compute boolean value
     for i in range(len(df_meta)):
         if df_meta['Value'].values[i] == '':
             b_lcl = False
         else:
+            #if df_meta['Category'].values[i] == ''
             b_lcl = True
         b_ok_to_run = b_ok_to_run * b_lcl
     if b_ok_to_run:
@@ -110,23 +147,48 @@ def authorize():
         button_run.config(state=DISABLED)
 
 
-def open_about(n_entry=0):
+def open_about_input(n_entry=0):
+    """
+    open doc link of input file
+    :param n_entry:
+    :return:
+    """
     webbrowser.open(url=lst_urls_inpfiles[n_entry])
 
 
 def update_folder(n_entry=0):
-    global df_meta, lst_labels_wplc
-    # update run status
-    authorize()
-    s_folderpath = dct_etr_wplc[lst_labels_wplc[n_entry]].get()
+    """
+    Update folder entry
+    :param n_entry: int index of entry
+    :return:
+    """
+    global df_meta, lst_lbls_wplc
+
+    s_folderpath = dct_etr_wplc[lst_lbls_wplc[n_entry]].get()
     if len(s_folderpath) == 0:
-        s_folderpath = 'Empty'
         messagebox.showwarning(title='Warning', message='Empty entry')
-    # report
-    report(s_msg='{} : {}'.format(lst_labels_wplc[n_entry], s_folderpath))
+        # report
+        report(s_msg='{} : Warning -- Empty Entry'.format(lst_lbls_wplc[n_entry]))
+    else:
+        if os.path.isdir(s_folderpath):
+            # get entry metadata
+            get_entry_metadata()
+            tkinter.messagebox.showinfo(message='Folder updated')
+            # report
+            report(s_msg='{} : {}'.format(lst_lbls_wplc[n_entry], s_folderpath))
+        else:
+            tkinter.messagebox.showwarning(title='Warning', message='Folder Not Found')
+            # report
+            report(s_msg='{} : Warning -- Folder Not Found'.format(lst_lbls_wplc[n_entry]))
+
 
 
 def update_file(n_entry=0):
+    """
+    Update file entry
+    :param n_entry: int index of entry
+    :return:
+    """
     global df_meta, lst_lbls_inpfiles
     # update run status
     authorize()
@@ -134,10 +196,28 @@ def update_file(n_entry=0):
     if len(s_filepath) == 0:
         s_filepath = 'Empty'
         messagebox.showwarning(title='Warning', message='Empty entry')
-    report(s_msg='{} : {}'.format(lst_lbls_inpfiles[n_entry], s_filepath))
+        # report
+        report(s_msg='{} : Warning -- Empty Entry'.format(lst_lbls_inpfiles[n_entry]))
+    else:
+        if os.path.isfile(s_filepath):
+            # get entry data
+            get_entry_metadata()
+            tkinter.messagebox.showinfo(message='File updated')
+            # report
+            report(s_msg='{} : {}'.format(lst_lbls_inpfiles[n_entry], s_filepath))
+        else:
+            tkinter.messagebox.showwarning(title='Warning', message='File not found')
+            # report
+            report(s_msg='{} : Warning -- File Not Found'.format(lst_lbls_inpfiles[n_entry]))
 
 
 def pick_folder(n_entry=0):
+    """
+    pick folder helper
+    :param n_entry: int index of folder entry
+    :return:
+    """
+    global lst_lbls_wplc
     while True:
         s_folderpath = fd.askdirectory(title='Select a folder')
         if len(s_folderpath) == 0:
@@ -146,14 +226,21 @@ def pick_folder(n_entry=0):
         b_ans = tkinter.messagebox.askokcancel(title='Confirm folder', message=s_folderpath)
         if b_ans:
             # change entry
-            dct_etr_wplc[lst_labels_wplc[n_entry]].delete(0, END) # clear
-            dct_etr_wplc[lst_labels_wplc[n_entry]].insert(0, s_folderpath) # insert
+            dct_etr_wplc[lst_lbls_wplc[n_entry]].delete(0, END) # clear
+            dct_etr_wplc[lst_lbls_wplc[n_entry]].insert(0, s_folderpath) # insert
             update_folder(n_entry=n_entry)
             break
 
 
 def pick_file(tpl_file_type, s_initialdir, n_entry=0):
-    s_filepath = ''
+    """
+    pick file helper
+    :param tpl_file_type: tuple of file type
+    :param s_initialdir: string path to initial dir
+    :param n_entry:
+    :return:
+    """
+    global lst_lbls_inpfiles
     while True:
         tpl_filetypes = (tpl_file_type, ('All files', '*.*'))
         s_filepath = fd.askopenfilename(
@@ -175,7 +262,7 @@ def pick_file(tpl_file_type, s_initialdir, n_entry=0):
 def print_log_header():
     # report
     listbox_log.config(state=NORMAL)
-    listbox_log.insert(END, ' ************* Basic tool *************')
+    listbox_log.insert(END, ' {} Basic Tool {} '.format('*' * 30, '*' * 30))
     s_report = ' {} >>> Initiate session'.format(backend.timestamp_log())
     listbox_log.insert(END, s_report)
     listbox_log.config(state=DISABLED)
@@ -188,13 +275,13 @@ root.title(s_title)
 # root.iconbitmap('wave.ico')  # use in Windows OS
 
 # tool setup
-lst_lbls_inpfiles = ['CSV Series 2']
-lst_urls_inpfiles = ['https://www.google.com']
-lst_types_inpfiles = [('Text CSV', '*.txt')]
-lst_lbls_params = ['Plot results']
+lst_lbls_inpfiles = ['CSV Table 1', 'CSV Table 2', 'CSV Table 3']
+lst_urls_inpfiles = ['https://www.google.com', 'https://www.google.com', 'https://www.google.com']
+lst_types_inpfiles = [('Text CSV', '*.txt'), ('Text CSV', '*.txt'), ('Text CSV', '*.txt')]
+lst_lbls_params = ['Plot results', 'Compute Stats']
 
 # geometry setup
-n_height = 580
+n_height = 650
 n_width = 800
 n_entry_width = 52
 root.geometry('{}x{}'.format(int(n_width), int(n_height)))
@@ -207,8 +294,9 @@ color_actbg = '#df4a16'
 color_fg = 'white'
 
 # icons
+img_logo = tkinter.PhotoImage(file='figs/logo_color_80x80.png')
 img_open = tkinter.PhotoImage(file='figs/open.png')
-img_about = tkinter.PhotoImage(file='figs/about.png')
+img_about = tkinter.PhotoImage(file='figs/info.png')
 img_run = tkinter.PhotoImage(file='figs/run.png')
 img_save = tkinter.PhotoImage(file='figs/save.png')
 img_exit = tkinter.PhotoImage(file='figs/exit.png')
@@ -261,20 +349,29 @@ frame_log.pack(padx=5, pady=5)
 
 
 # >> Header
-label_head = tkinter.Label(frame_header, text=s_title, width=15,
+
+label_logo = tkinter.Label(frame_header, image=img_logo, width=100,
                            bg=color_bg, activebackground=color_actbg,
                            foreground=color_fg, activeforeground=color_fg)
-label_head.grid(row=0, column=0, padx=5, pady=5)
+label_logo.pack(padx=5, pady=5, side=RIGHT)
+
+s_head_msg = 'Basic tool'
+label_head = tkinter.Label(frame_header, text=s_head_msg, width=60, justify='right',
+                           bg=color_bg, activebackground=color_actbg,
+                           foreground=color_fg, activeforeground=color_fg)
+label_head.pack(padx=5, pady=5, side=RIGHT)
+
+
 
 # >> Workplace
-lst_labels_wplc = ['Input Folder', 'Run Folder']
+lst_lbls_wplc = ['Input Folder', 'Run Folder']
 # place widgets
 dct_lbls_wplc = dict()
 dct_etr_wplc = dict()
 dct_btn_update_wplc = dict()
 dct_btn_search_wplc = dict()
-for i in range(len(lst_labels_wplc)):
-    s_lcl_key = lst_labels_wplc[i]
+for i in range(len(lst_lbls_wplc)):
+    s_lcl_key = lst_lbls_wplc[i]
     # labels
     dct_lbls_wplc[s_lcl_key] = tkinter.Label(frame_workplace, text=s_lcl_key, width=15, anchor="e",
                                              bg=color_bg, activebackground=color_actbg,
@@ -371,7 +468,7 @@ label_runicon.pack(anchor='e', side=RIGHT)
 
 # log pannel
 scrollbar_log = tkinter.Scrollbar(frame_log, width=10, bg=color_bg_alt, bd=0, activebackground=color_actbg)
-listbox_log = tkinter.Listbox(frame_log, height=13, width=94,
+listbox_log = tkinter.Listbox(frame_log, height=8, width=94,
                               borderwidth=0, bd=0,
                               bg='black', foreground=color_fg, highlightbackground=color_bg,
                               yscrollcommand=scrollbar_log.set)
@@ -389,12 +486,23 @@ dct_btn_search_wplc['Run Folder'].config(command=lambda : pick_folder(n_entry=1)
 dct_btn_update_wplc['Input Folder'].config(command=lambda : update_folder(n_entry=0))
 dct_btn_update_wplc['Run Folder'].config(command=lambda : update_folder(n_entry=1))
 
-# config input search buttons commmands
+# config input update buttons commmands
 dct_btn_update[lst_lbls_inpfiles[0]].config(command=lambda : update_file(n_entry=0))
+dct_btn_update[lst_lbls_inpfiles[1]].config(command=lambda : update_file(n_entry=1))
+dct_btn_update[lst_lbls_inpfiles[2]].config(command=lambda : update_file(n_entry=2))
+
+# config input search buttons commmands
 dct_btn_input[lst_lbls_inpfiles[0]].config(command=lambda : pick_file(n_entry=0, tpl_file_type=lst_types_inpfiles[0],
                                                                       s_initialdir=dct_etr_wplc['Input Folder'].get()))
+dct_btn_input[lst_lbls_inpfiles[1]].config(command=lambda : pick_file(n_entry=0, tpl_file_type=lst_types_inpfiles[1],
+                                                                      s_initialdir=dct_etr_wplc['Input Folder'].get()))
+dct_btn_input[lst_lbls_inpfiles[2]].config(command=lambda : pick_file(n_entry=0, tpl_file_type=lst_types_inpfiles[2],
+                                                                      s_initialdir=dct_etr_wplc['Input Folder'].get()))
 # config input about buttons commands
-dct_btn_about[lst_lbls_inpfiles[0]].config(command=lambda : open_about(n_entry=0))
+dct_btn_about[lst_lbls_inpfiles[0]].config(command=lambda : open_about_input(n_entry=0))
+dct_btn_about[lst_lbls_inpfiles[1]].config(command=lambda : open_about_input(n_entry=1))
+dct_btn_about[lst_lbls_inpfiles[2]].config(command=lambda : open_about_input(n_entry=2))
+
 authorize()
 button_run.config(command=run)
 
