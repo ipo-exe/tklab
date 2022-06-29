@@ -1,0 +1,9 @@
+Metadata;Category;Entry;Value
+Timestamp;last update;-;2022/06/29 15:57:53.67
+Input Folder;directory;0;/home/ipora/PycharmProjects/tklab
+Run Folder;directory;1;/home/ipora/Documents/bin
+CSV Table 1;file;0;/home/ipora/PycharmProjects/tklab/samples/series_obs.txt
+CSV Table 2;file;1;/home/ipora/PycharmProjects/tklab/samples/lulc_param.txt
+CSV Table 3;file;2;/home/ipora/PycharmProjects/tklab/samples/lulc_param.txt
+Plot results;parameter;0;True
+Compute Stats;parameter;1;True

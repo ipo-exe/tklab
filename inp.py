@@ -25,9 +25,9 @@ def open_df(s_filepath, s_sep=';', s_date_field='', s_mandatory_fields='',):
                 try:
                     df_aux = df_lcl[f]
                 except KeyError:
-                    return {'Error Report': 'Invalid formatting.'}
-        return {'df': df_lcl, 'Error Report': 'File OK'}
+                    return {'Error Report': 'Invalid formatting.', 'OK Flag': False}
+        return {'df': df_lcl, 'Error Report': 'File OK', 'OK Flag': True}
     except FileNotFoundError:
-        return {'Error Report': 'File not found'}
+        return {'Error Report': 'File not found', 'OK Flag': False}
     except ValueError:
-        return {'Error Report': 'Invalid formatting'}
+        return {'Error Report': 'Invalid formatting', 'OK Flag': False}

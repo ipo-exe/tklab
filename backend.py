@@ -21,7 +21,7 @@ def timestamp(s_sep='-'):
     hr = def_now.strftime('%H')
     mn = def_now.strftime('%M')
     sg = def_now.strftime('%S')
-    fm = def_now.strftime('%f')
+    fm = def_now.strftime('%f')[:-4]
     def_lst = [yr, mth, dy, hr, mn, sg, fm]
     def_s = str(s_sep.join(def_lst))
     return def_s
