@@ -7,17 +7,17 @@ These files must be prepared and sourced by the user. Samples are provided for p
 
 |File | Source | Format | Sample|
 |:--- | :--- | :--- | :---|
-|[param_lulc.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#param_lulctxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdparam_lulc#txt)|
-|[param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#param_soilstxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdparam_soils#txt)|
-|[param_hydro.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#param_hydrotxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdparam_hydro#txt)|
-|[map_soils.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_soilsasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdmap_soils#asc)|
-|[map_lulc.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_lulcasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdmap_lulc#asc)|
-|[map_basin.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_basinasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdmap_basin#asc)|
-|[map_twi.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_twiasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdmap_twi#asc)|
-|[map_hand.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_handasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdmap_hand#asc)|
-|[map_slope.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_slopeasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdmap_slope#asc)|
-|[map_ET_obs_Date.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_ET_obs_Dateasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdmap_ET_obs_Date#asc)|
-|[series_obs.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#series_obstxt) | imported by user | Time Series | [Sample file](https://github.com/ipo-exe/tklab/blob/main/iofiles.mdseries_obs#txt)|
+|[param_lulc.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#param_lulctxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_lulc.txt)|
+|[param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#param_soilstxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_soils.txt)|
+|[param_hydro.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#param_hydrotxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_hydro.txt)|
+|[map_soils.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_soilsasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_soils.asc)|
+|[map_lulc.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_lulcasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_lulc.asc)|
+|[map_basin.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_basinasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_basin.asc)|
+|[map_twi.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_twiasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_twi.asc)|
+|[map_hand.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_handasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_hand.asc)|
+|[map_slope.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_slopeasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_slope.asc)|
+|[map_ET_obs_Date.asc](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#map_ET_obs_Dateasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_ET_obs_Date.asc)|
+|[series_obs.txt](https://github.com/ipo-exe/tklab/blob/main/iofiles.md#series_obstxt) | imported by user | Time Series | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/series_obs.txt)|
 
 ## `param_lulc.txt`
  - **Description**: Table of LULC parameters;

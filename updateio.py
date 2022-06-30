@@ -68,7 +68,7 @@ df_io['File Name'] = df_io['Name'] + '.' + df_io['Extension']
 df_io['File'] = '[' + df_io['File Name'] + '](' + s_file_url + '#' + df_io['Name'] + df_io['Extension'] + ')'
 
 df_io['Sample_URL'] = s_dir_samples_url + '/' + df_io['File Name']
-df_io['Sample'] = '[Sample file](' + s_file_url + df_io['Name'] +'#' + df_io['Extension'] + ')'
+df_io['Sample'] = '[Sample file](' + s_dir_samples_url + '/' + df_io['File Name'] + ')'
 
 df_import = df_io.query('Source == "imported by user"')
 df_output = df_io.query('Source == "process output"')
