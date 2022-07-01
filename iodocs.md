@@ -9,7 +9,7 @@ These files must be prepared and sourced by the user. Samples are provided for p
 |File | Source | Format | Sample|
 |:--- | :--- | :--- | :---|
 |[param_lulc.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_lulctxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_lulc.txt)|
-|[param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_soilstxt) | imported by user | Data Table | missing|
+|[param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_soilstxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_soils.txt)|
 |[param_hydro.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_hydrotxt) | imported by user | Data Table | missing|
 |[map_soils.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_soilsasc) | imported by user | Raster Map | missing|
 |[map_lulc.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_lulcasc) | imported by user | Raster Map | missing|
@@ -58,9 +58,17 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `param_soils.txt`
  - **Description**: Table of Soils parameters;
  - **Source**: imported by user;
- - **File sample**: _missing_;
+ - **File sample**: [param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_soils.txt);
  - **Format**: Data Table;
  - **Formating example**:
+```
+Id;                Name; Alias;   Color; f_ksat; f_rho; usle_K
+ 1; Colluvial Sandstone;    Sc;  orange;      1;     1;   0.02
+ 2;  Residual Sandstone;    Sr;     red;      1;   0.9;   0.02
+ 3;    Colluvial Basalt;    Bc;   coral;    0.1;   0.5;  0.001
+ 4;     Residual Basalt;    Br;   brown;    0.1;   0.6;  0.001
+ 5;            Alluvial;    Al; #766c82;    0.5;   0.9;   0.01
+```
  - **Requirements**:
 	 - Field separator: semicolon `;`;
 	 - Decimal separator: period `.`;

@@ -116,7 +116,6 @@ for i in range(len(lst_dfs)):
     # table
     df_lcl = lst_dfs[i][lst_table[i]]
     append_table(df=df_lcl)
-
     for j in range(len(df)):
         # get local values
         s_filename = df['Name'].values[j]
@@ -129,7 +128,6 @@ for i in range(len(lst_dfs)):
         s_opti_fields = df['Optional Fields'].values[j]
         s_title = '## `{}.{}`'.format(s_filename, s_extension)
         s_sample = df['Sample'].values[j]
-
         # append to list
         lst_file.append('\n{}'.format(s_title))
         lst_file.append('\n')
@@ -167,9 +165,7 @@ for i in range(len(lst_dfs)):
                 lst_file.append('```\n{}\n```\n'.format(s_example))
             except FileNotFoundError:
                 pass
-
         lst_file.append(' - **Requirements**:\n')
-
         if s_format == 'Data Table':
             append_basic_table_reqs()
             append_fields_head(s_fields=s_mand_fields, s_msg='Mandatory Fields')
