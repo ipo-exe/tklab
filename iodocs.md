@@ -45,10 +45,13 @@ These files must be prepared and sourced by the user. Samples are provided for p
  - **File sample**: [param_lulc.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_lulc.txt);
  - **Formating example**:
 ```
-Id;     Name;   Alias;   Color;  f_cpmax;  f_sfmax;  f_rzd
- 1;    Water;      Wt;    blue;      1.0;      1.0;    1.0
- 2;    Crops;      Cr;     red;      1.1;      1.3;    1.2
- 3;   Forest;      Fr;   green;      1.9;      1.5;    2.0
+Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; load_N; load_P
+ 1;   Water;    Wa;    blue;    0.07;    0.07;    0.07;      1;  0.001;      1;      0;      0
+ 2;   Urban;    Ur; #8c8a85;     0.2;     0.2;     0.2;    0.6;    0.3;      1;   4.65;  0.124
+ 3;  Forest;    Fs;   green;       1;       1;       1;      1;  0.001;      1;   2.19;  0.142
+ 4;   Crops;    Cr;     red;     0.4;     0.4;     0.4;      1;    0.4;      1; 10.768;  1.263
+ 5; Pasture;    Ps; #79a832;    0.53;    0.53;    0.53;      1;    0.1;      1;  1.825;  0.102
+ 6;   Roads;    Rd;   white;    0.07;    0.07;    0.07;    0.1;      1;      1;   4.65;  0.124
 ```
 ## `param_soils.txt`
  - **Description**: Table of Soils parameters;
