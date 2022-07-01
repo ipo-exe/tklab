@@ -9,15 +9,15 @@ These files must be prepared and sourced by the user. Samples are provided for p
 |File | Source | Format | Sample|
 |:--- | :--- | :--- | :---|
 |[param_lulc.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_lulctxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_lulc.txt)|
-|[param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_soilstxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_soils.txt)|
-|[param_hydro.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_hydrotxt) | imported by user | Data Table | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/param_hydro.txt)|
-|[map_soils.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_soilsasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_soils.asc)|
-|[map_lulc.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_lulcasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_lulc.asc)|
-|[map_basin.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_basinasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_basin.asc)|
-|[map_twi.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_twiasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_twi.asc)|
-|[map_hand.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_handasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_hand.asc)|
-|[map_slope.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_slopeasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_slope.asc)|
-|[map_ET_obs_Date.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_ET_obs_Dateasc) | imported by user | Raster Map | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/map_ET_obs_Date.asc)|
+|[param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_soilstxt) | imported by user | Data Table | missing|
+|[param_hydro.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#param_hydrotxt) | imported by user | Data Table | missing|
+|[map_soils.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_soilsasc) | imported by user | Raster Map | missing|
+|[map_lulc.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_lulcasc) | imported by user | Raster Map | missing|
+|[map_basin.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_basinasc) | imported by user | Raster Map | missing|
+|[map_twi.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_twiasc) | imported by user | Raster Map | missing|
+|[map_hand.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_handasc) | imported by user | Raster Map | missing|
+|[map_slope.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_slopeasc) | imported by user | Raster Map | missing|
+|[map_ET_obs_Date.asc](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#map_ET_obs_Dateasc) | imported by user | Raster Map | missing|
 |[series_obs.txt](https://github.com/ipo-exe/tklab/blob/main/iodocs.md#series_obstxt) | imported by user | Time Series | [Sample file](https://github.com/ipo-exe/tklab/blob/main/samples/series_obs.txt)|
 
 ## `param_lulc.txt`
@@ -58,7 +58,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `param_soils.txt`
  - **Description**: Table of Soils parameters;
  - **Source**: imported by user;
- - **File sample**: [param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_soils.txt);
+ - **File sample**: _missing_;
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -79,7 +79,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `param_hydro.txt`
  - **Description**: Table of model parameters;
  - **Source**: imported by user;
- - **File sample**: [param_hydro.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_hydro.txt);
+ - **File sample**: _missing_;
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -97,7 +97,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `map_soils.asc`
  - **Description**: Map of Soils types;
  - **Source**: imported by user;
- - **File sample**: [map_soils.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_soils.asc);
+ - **File sample**: _missing_;
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -109,7 +109,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `map_lulc.asc`
  - **Description**: Map of LULC (land use and land cover) classes;
  - **Source**: imported by user;
- - **File sample**: [map_lulc.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_lulc.asc);
+ - **File sample**: _missing_;
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -121,7 +121,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `map_basin.asc`
  - **Description**: Basin boolean map;
  - **Source**: imported by user;
- - **File sample**: [map_basin.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_basin.asc);
+ - **File sample**: _missing_;
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -133,7 +133,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `map_twi.asc`
  - **Description**: Map of the Topographical Wetness Index (TWI);
  - **Source**: imported by user;
- - **File sample**: [map_twi.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_twi.asc);
+ - **File sample**: _missing_;
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -145,7 +145,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `map_hand.asc`
  - **Description**: Map of the Height Above Nearest Drainage (HAND);
  - **Source**: imported by user;
- - **File sample**: [map_hand.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_hand.asc);
+ - **File sample**: _missing_;
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -157,7 +157,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `map_slope.asc`
  - **Description**: Map of terrain slope;
  - **Source**: imported by user;
- - **File sample**: [map_slope.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_slope.asc);
+ - **File sample**: _missing_;
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -169,7 +169,7 @@ Id;    Name; Alias;   Color; f_cpmax; f_sfmax; f_roots; f_perv; usle_C; usle_P; 
 ## `map_ET_obs_Date.asc`
  - **Description**: Map of observed Evapotranspiration in Date={Date};
  - **Source**: imported by user;
- - **File sample**: [map_ET_obs_Date.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_ET_obs_Date.asc);
+ - **File sample**: _missing_;
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -239,7 +239,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `param_shru.txt`
  - **Description**: Table of SHRU parameters;
  - **Source**: process output;
- - **File sample**: [param_shru.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_shru.txt);
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -267,7 +266,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `hist2d_extent.txt`
  - **Description**: 2-D histogram (counting matrix) of spatial units within the full map extent;
  - **Source**: process output;
- - **File sample**: [hist2d_extent.txt](https://github.com/ipo-exe/tklab/blob/main/samples/hist2d_extent.txt);
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -277,7 +275,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `hist2d_basin.txt`
  - **Description**: 2-D histogram (counting matrix) of spatial units within the basin extent;
  - **Source**: process output;
- - **File sample**: [hist2d_basin.txt](https://github.com/ipo-exe/tklab/blob/main/samples/hist2d_basin.txt);
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -287,7 +284,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `zmap_Var_Date.txt`
  - **Description**: ZMap of simulated Var={Var} in Date={Date} (ex: zmap_Inf_2022-02-01);
  - **Source**: process output;
- - **File sample**: [zmap_Var_Date.txt](https://github.com/ipo-exe/tklab/blob/main/samples/zmap_Var_Date.txt);
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -297,7 +293,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `zmap_Var_Stat.txt`
  - **Description**: ZMap of the statistics Stat={Stat} of simulated Var={Var} (ex: zmap_Inf_Sum);
  - **Source**: process output;
- - **File sample**: [zmap_Var_Stat.txt](https://github.com/ipo-exe/tklab/blob/main/samples/zmap_Var_Stat.txt);
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -307,7 +302,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `zmap_Var_Stat_annual.txt`
  - **Description**: ZMap of the statistics Stat={Stat} of simulated Var={Var} in annual scale (ex: zmap_Inf_Sum_annual);
  - **Source**: process output;
- - **File sample**: [zmap_Var_Stat_annual.txt](https://github.com/ipo-exe/tklab/blob/main/samples/zmap_Var_Stat_annual.txt);
  - **Format**: Data Table;
  - **Formating example**:
  - **Requirements**:
@@ -317,7 +311,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `map_shru.asc`
  - **Description**: Map of SHRU (surface hydrologic response units);
  - **Source**: process output;
- - **File sample**: [map_shru.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_shru.asc);
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -329,7 +322,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `map_Var_Date.asc`
  - **Description**: Map of simulated Var={Var} in Date={Date} (ex: map_Inf_2022-02-01);
  - **Source**: process output;
- - **File sample**: [map_Var_Date.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_Var_Date.asc);
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -341,7 +333,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `map_Var_Stat.asc`
  - **Description**: Map of the statistics Stat={Stat} of simulated Var={Var} (ex: map_Inf_Sum);
  - **Source**: process output;
- - **File sample**: [map_Var_Stat.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_Var_Stat.asc);
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -353,7 +344,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `map_Var_annual_Stat.asc`
  - **Description**: Map of the statistics Stat={Stat} of simulated Var={Var} in annual scale (ex: map_Inf_Sum_annual);
  - **Source**: process output;
- - **File sample**: [map_Var_annual_Stat.asc](https://github.com/ipo-exe/tklab/blob/main/samples/map_Var_annual_Stat.asc);
  - **Format**: Raster Map;
  - **Formating example**:
  - **Requirements**:
@@ -365,7 +355,6 @@ These files are generated by the program. Note that the user may source it as in
 ## `series_sim.txt`
  - **Description**: Time series of simulated hydrologic processes;
  - **Source**: process output;
- - **File sample**: [series_sim.txt](https://github.com/ipo-exe/tklab/blob/main/samples/series_sim.txt);
  - **Format**: Time Series;
  - **Formating example**:
  - **Requirements**:

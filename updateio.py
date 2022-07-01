@@ -81,7 +81,14 @@ df_io['File Name'] = df_io['Name'] + '.' + df_io['Extension']
 df_io['File'] = '[' + df_io['File Name'] + '](' + s_file_url + '#' + df_io['Name'] + df_io['Extension'] + ')'
 
 df_io['Sample_URL'] = s_dir_samples_url + '/' + df_io['File Name']
-df_io['Sample'] = '[Sample file](' + s_dir_samples_url + '/' + df_io['File Name'] + ')'
+df_io['Sample'] = ''
+for i in range(len(df_io)):
+    if df_io['Source'].values[i] == 'imported by user':
+        s_lcl_path = './samples/{}'.format(df_io['File Name'].values[i])
+        if os.path.isfile(s_lcl_path):
+            df_io['Sample'].values[i] = '[Sample file](' + s_dir_samples_url + '/' + df_io['File Name'].values[i] + ')'
+        else:
+            df_io['Sample'].values[i] = 'missing'
 
 df_import = df_io.query('Source == "imported by user"')
 df_output = df_io.query('Source == "process output"')
@@ -121,14 +128,19 @@ for i in range(len(lst_dfs)):
         s_mand_fields = df['Mandatory Fields'].values[j]
         s_opti_fields = df['Optional Fields'].values[j]
         s_title = '## `{}.{}`'.format(s_filename, s_extension)
+        s_sample = df['Sample'].values[j]
 
         # append to list
         lst_file.append('\n{}'.format(s_title))
         lst_file.append('\n')
         lst_file.append(' - **Description**: {};\n'.format(s_descrp))
         lst_file.append(' - **Source**: {};\n'.format(s_source))
-        lst_file.append(' - **File sample**: [{}.{}]({}/{}.{});\n'.format(s_filename, s_extension,
-                                                                          s_dir_samples_url, s_filename, s_extension))
+        if s_source == 'imported by user':
+            if s_sample == 'missing':
+                lst_file.append(' - **File sample**: _missing_;\n')
+            else:
+                lst_file.append(' - **File sample**: [{}.{}]({}/{}.{});\n'.format(s_filename, s_extension,
+                                                                              s_dir_samples_url, s_filename, s_extension))
         lst_file.append(' - **Format**: {};\n'.format(s_format))
         lst_file.append(' - **Formating example**:\n'.format(s_descrp))
         if s_format == 'Time Series' or s_format == 'Data Table':
