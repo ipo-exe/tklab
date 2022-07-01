@@ -27,18 +27,21 @@ These files must be prepared and sourced by the user. Samples are provided for p
 	 - Field separator: semicolon `;`;
 	 - Decimal separator: period `.`;
  - **Mandatory Fields**:
-	 - `Id ` [unique integer number]: Category numerical identifyier [-];
-	 - ` Name ` [text]: Category name [-];
-	 - ` Alias ` [text]: Category alias (one-word only) [-];
-	 - ` Color ` [text]: CSS color name available in [matplotlib](https://matplotlib.org/stable/gallery/color/named_colors.html) (ex: `blue`) or hexadecimal code of color (ex: `#5234eb`). [-];
-	 - ` f_cpmax ` [positive real number]: spatial factor for the `cpmax` parameter [unitless];
-	 - ` f_sfmax ` [positive real number]: spatial factor for the `sfmax` parameter [unitless];
-	 - ` f_roots ` [positive real number]: spatial factor for the `roots` parameter [unitless];
-	 - ` f_perv ` [positive real number]: spatial factor of perviousness(1 = 100% pervious) [unitless];
-	 - ` usle_C ` [positive real number]: USLE `C` parameter [unitless];
-	 - ` usle_P ` [positive real number]: USLE `P` parameter [unitless];
-	 - ` load_N ` [positive real number]: Effective annual Nitrogen load [KgN / yr];
-	 - ` load_P` [positive real number]: Effective annual Phosphorous load [kgP / yr];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`Id ` | unique integer number | Category numerical identifyier | -|
+|` Name ` | text | Category name | -|
+|` Alias ` | text | Category alias (one-word only) | -|
+|` Color ` | text | CSS color name available in [matplotlib](https://matplotlib.org/stable/gallery/color/named_colors.html) (ex: `blue`) or hexadecimal code of color (ex: `#5234eb`). | -|
+|` f_cpmax ` | positive real number | spatial factor for the `cpmax` parameter | unitless|
+|` f_sfmax ` | positive real number | spatial factor for the `sfmax` parameter | unitless|
+|` f_roots ` | positive real number | spatial factor for the `roots` parameter | unitless|
+|` f_perv ` | positive real number | spatial factor of perviousness(1 = 100% pervious) | unitless|
+|` usle_C ` | positive real number | USLE `C` parameter | unitless|
+|` usle_P ` | positive real number | USLE `P` parameter | unitless|
+|` load_N ` | positive real number | Effective annual Nitrogen load | KgN / yr|
+|` load_P` | positive real number | Effective annual Phosphorous load | kgP / yr|
  - **File sample**: [param_lulc.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_lulc.txt);
  - **Formating example**:
 ```
@@ -55,13 +58,16 @@ Id;     Name;   Alias;   Color;  f_cpmax;  f_sfmax;  f_rzd
 	 - Field separator: semicolon `;`;
 	 - Decimal separator: period `.`;
  - **Mandatory Fields**:
-	 - `Id ` [unique integer number]: Category numerical identifyier [-];
-	 - ` Name ` [text]: Category name [-];
-	 - ` Alias ` [text]: Category alias (one-word only) [-];
-	 - ` Color ` [text]: CSS color name available in [matplotlib](https://matplotlib.org/stable/gallery/color/named_colors.html) (ex: `blue`) or hexadecimal code of color (ex: `#5234eb`). [-];
-	 - ` f_ksat ` [positive real number]: spatial factor for the `ksat` parameter [unitless];
-	 - ` f_rho ` [positive real number]: spatial factor for the `rho` parameter [unitless];
-	 - ` usle_K` [positive real number]: USLE `K` parameter [ton h / (MJ mm)];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`Id ` | unique integer number | Category numerical identifyier | -|
+|` Name ` | text | Category name | -|
+|` Alias ` | text | Category alias (one-word only) | -|
+|` Color ` | text | CSS color name available in [matplotlib](https://matplotlib.org/stable/gallery/color/named_colors.html) (ex: `blue`) or hexadecimal code of color (ex: `#5234eb`). | -|
+|` f_ksat ` | positive real number | spatial factor for the `ksat` parameter | unitless|
+|` f_rho ` | positive real number | spatial factor for the `rho` parameter | unitless|
+|` usle_K` | positive real number | USLE `K` parameter | ton h / (MJ mm)|
  - **File sample**: [param_soils.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_soils.txt);
  - **Formating example**:
 
@@ -73,10 +79,13 @@ Id;     Name;   Alias;   Color;  f_cpmax;  f_sfmax;  f_rzd
 	 - Field separator: semicolon `;`;
 	 - Decimal separator: period `.`;
  - **Mandatory Fields**:
-	 - `Parameter ` [text]: Parameter name [-];
-	 - ` Set ` [positive real number]: Set value of parameter [-];
-	 - ` Min ` [positive real number]: Minimum value of parameter in confidence interval [-];
-	 - ` Max` [positive real number]: Maximum value of parameter in confidence interval [-];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`Parameter ` | text | Parameter name | -|
+|` Set ` | positive real number | Set value of parameter | -|
+|` Min ` | positive real number | Minimum value of parameter in confidence interval | -|
+|` Max` | positive real number | Maximum value of parameter in confidence interval | -|
  - **File sample**: [param_hydro.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_hydro.txt);
  - **Formating example**:
 
@@ -174,18 +183,24 @@ Id;     Name;   Alias;   Color;  f_cpmax;  f_sfmax;  f_rzd
 	 - Time resolution: daily timesteps;
 	 - Date format: `YYYY-MM-DD`;
  - **Mandatory Fields**:
-	 - `Date ` [date]: Date of record [-];
-	 - ` P ` [positive real number]: Precipitation [mm/d];
-	 - ` T ` [positive real number]: Mean daily temperature [Celcius];
-	 - ` IRA ` [positive real number]: Irrigation by aspersion [mm/d];
-	 - ` IRI` [positive real number]: Irrigation by inundation or dripping [mm/d];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`Date ` | date | Date of record | -|
+|` P ` | positive real number | Precipitation | mm/d|
+|` T ` | positive real number | Mean daily temperature | Celcius|
+|` IRA ` | positive real number | Irrigation by aspersion | mm/d|
+|` IRI` | positive real number | Irrigation by inundation or dripping | mm/d|
  - **Optional Fields**:
-	 - `Q_obs ` [positive real number]: Observed specific streamflow [mm/d];
-	 - ` Flow_obs ` [positive real number]: Observed streamflow [m3/s];
-	 - ` ET_obs ` [positive real number]: Observed Evapotranspiration  [mm/d];
-	 - ` f_cpmax_Alias ` [positive real number]: temporal factor for the `cpmax` parameter for LULC types (ex: `f_cpmax_Fs`, where `Fs` is the LULC Alias for `Forest`) [unitless];
-	 - ` f_sfmax_Alias ` [positive real number]: temporal factor for the `sfmax` parameter for LULC types (ex: `f_sfmax_Fs`, where `Fs` is the LULC Alias for `Forest`) [unitless];
-	 - ` f_roots_Alias` [positive real number]: temporal factor for the `roots` parameter for LULC types (ex: `f_roots_Fs`, where `Fs` is the LULC Alias for `Forest`) [unitless];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`Q_obs ` | positive real number | Observed specific streamflow | mm/d|
+|` Flow_obs ` | positive real number | Observed streamflow | m3/s|
+|` ET_obs ` | positive real number | Observed Evapotranspiration  | mm/d|
+|` f_cpmax_Alias ` | positive real number | temporal factor for the `cpmax` parameter for LULC types (ex: `f_cpmax_Fs`, where `Fs` is the LULC Alias for `Forest`) | unitless|
+|` f_sfmax_Alias ` | positive real number | temporal factor for the `sfmax` parameter for LULC types (ex: `f_sfmax_Fs`, where `Fs` is the LULC Alias for `Forest`) | unitless|
+|` f_roots_Alias` | positive real number | temporal factor for the `roots` parameter for LULC types (ex: `f_roots_Fs`, where `Fs` is the LULC Alias for `Forest`) | unitless|
  - **File sample**: [series_obs.txt](https://github.com/ipo-exe/tklab/blob/main/samples/series_obs.txt);
  - **Formating example**:
 ```
@@ -223,20 +238,23 @@ These files are generated by the program. Note that the user may source it as in
 	 - Field separator: semicolon `;`;
 	 - Decimal separator: period `.`;
  - **Mandatory Fields**:
-	 - `Id ` [unique integer number]: Category numerical identifyier [-];
-	 - ` Name ` [text]: Category name [-];
-	 - ` Alias ` [text]: Category alias (one-word only) [-];
-	 - ` f_cpmax ` [positive real number]: spatial factor for the `cpmax` parameter [unitless];
-	 - ` f_sfmax ` [positive real number]: spatial factor for the `sfmax` parameter [unitless];
-	 - ` f_roots ` [positive real number]: spatial factor for the `roots` parameter [unitless];
-	 - ` f_perv ` [positive real number]: spatial factor of perviousness(1 = 100% pervious) [unitless];
-	 - ` usle_C ` [positive real number]: USLE `C` parameter [unitless];
-	 - ` usle_P ` [positive real number]: USLE `P` parameter [unitless];
-	 - ` load_N ` [positive real number]: Effective annual Nitrogen load [KgN / yr];
-	 - ` load_P ` [positive real number]: Effective annual Phosphorous load [kgP / yr];
-	 - `  f_ksat ` [positive real number]: spatial factor for the `ksat` parameter [unitless];
-	 - ` f_rho ` [positive real number]: spatial factor for the `rho` parameter [unitless];
-	 - ` usle_K` [positive real number]: USLE `K` parameter [ton h / (MJ mm)];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`Id ` | unique integer number | Category numerical identifyier | -|
+|` Name ` | text | Category name | -|
+|` Alias ` | text | Category alias (one-word only) | -|
+|` f_cpmax ` | positive real number | spatial factor for the `cpmax` parameter | unitless|
+|` f_sfmax ` | positive real number | spatial factor for the `sfmax` parameter | unitless|
+|` f_roots ` | positive real number | spatial factor for the `roots` parameter | unitless|
+|` f_perv ` | positive real number | spatial factor of perviousness(1 = 100% pervious) | unitless|
+|` usle_C ` | positive real number | USLE `C` parameter | unitless|
+|` usle_P ` | positive real number | USLE `P` parameter | unitless|
+|` load_N ` | positive real number | Effective annual Nitrogen load | KgN / yr|
+|` load_P ` | positive real number | Effective annual Phosphorous load | kgP / yr|
+|`  f_ksat ` | positive real number | spatial factor for the `ksat` parameter | unitless|
+|` f_rho ` | positive real number | spatial factor for the `rho` parameter | unitless|
+|` usle_K` | positive real number | USLE `K` parameter | ton h / (MJ mm)|
  - **File sample**: [param_shru.txt](https://github.com/ipo-exe/tklab/blob/main/samples/param_shru.txt);
  - **Formating example**:
 
@@ -348,35 +366,41 @@ These files are generated by the program. Note that the user may source it as in
 	 - Time resolution: daily timesteps;
 	 - Date format: `YYYY-MM-DD`;
  - **Mandatory Fields**:
-	 - `P ` [positive real number]: Precipitation [mm/d];
-	 - ` T ` [positive real number]: Mean daily temperature [Celcius];
-	 - ` IRA ` [positive real number]: Irrigation by aspersion [mm/d];
-	 - ` IRI ` [positive real number]: Irrigation by inundation or dripping [mm/d];
-	 - ` PET ` [positive real number]: Potential evapotranspiration [mm/d];
-	 - ` ET ` [positive real number]: Evapotranspiration  [mm/d];
-	 - ` Cp ` [positive real number]: Canopy water stock [mm];
-	 - ` Sf ` [positive real number]: Surface water stock [mm];
-	 - ` D ` [positive real number]: Soil water deficit [mm];
-	 - ` Vz ` [positive real number]: Vadose zone water stock [mm];
-	 - ` Inf ` [positive real number]: Infiltration [mm/d];
-	 - ` Intc ` [positive real number]: Interception in canopy [mm/d];
-	 - ` Ints ` [positive real number]: Interception in surface [mm/d];
-	 - ` TF ` [positive real number]: Throughfall (effective precipitation) [mm/d];
-	 - ` R ` [positive real number]: Runoff [mm/d];
-	 - ` RIE ` [positive real number]: Runoff by infiltration excess (Hortonian) [mm/d];
-	 - ` RSE ` [positive real number]: Runoff by saturation excess (Dunnean) [mm/d];
-	 - ` RC ` [positive real number]: Runoff coeficient (100 * R/P) [%];
-	 - ` Qv ` [positive real number]: Recharge [mm/d];
-	 - ` Qs ` [positive real number]: Stormflow (specific) [mm/d];
-	 - ` Qb ` [positive real number]: Baseflow (specific) [mm/d];
-	 - ` Q ` [positive real number]: Streamflow (specific) [mm/d];
-	 - ` Flow` [positive real number]: Streamflow [m3/s];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`P ` | positive real number | Precipitation | mm/d|
+|` T ` | positive real number | Mean daily temperature | Celcius|
+|` IRA ` | positive real number | Irrigation by aspersion | mm/d|
+|` IRI ` | positive real number | Irrigation by inundation or dripping | mm/d|
+|` PET ` | positive real number | Potential evapotranspiration | mm/d|
+|` ET ` | positive real number | Evapotranspiration  | mm/d|
+|` Cp ` | positive real number | Canopy water stock | mm|
+|` Sf ` | positive real number | Surface water stock | mm|
+|` D ` | positive real number | Soil water deficit | mm|
+|` Vz ` | positive real number | Vadose zone water stock | mm|
+|` Inf ` | positive real number | Infiltration | mm/d|
+|` Intc ` | positive real number | Interception in canopy | mm/d|
+|` Ints ` | positive real number | Interception in surface | mm/d|
+|` TF ` | positive real number | Throughfall (effective precipitation) | mm/d|
+|` R ` | positive real number | Runoff | mm/d|
+|` RIE ` | positive real number | Runoff by infiltration excess (Hortonian) | mm/d|
+|` RSE ` | positive real number | Runoff by saturation excess (Dunnean) | mm/d|
+|` RC ` | positive real number | Runoff coeficient (100 * R/P) | %|
+|` Qv ` | positive real number | Recharge | mm/d|
+|` Qs ` | positive real number | Stormflow (specific) | mm/d|
+|` Qb ` | positive real number | Baseflow (specific) | mm/d|
+|` Q ` | positive real number | Streamflow (specific) | mm/d|
+|` Flow` | positive real number | Streamflow | m3/s|
  - **Optional Fields**:
-	 - `Q_obs ` [positive real number]: Observed specific streamflow [mm/d];
-	 - ` Flow_obs ` [positive real number]: Observed streamflow [m3/s];
-	 - ` ET_obs ` [positive real number]: Observed Evapotranspiration  [mm/d];
-	 - ` f_cpmax_Alias ` [positive real number]: temporal factor for the `cpmax` parameter for LULC types (ex: `f_cpmax_Fs`, where `Fs` is the LULC Alias for `Forest`) [unitless];
-	 - ` f_sfmax_Alias ` [positive real number]: temporal factor for the `sfmax` parameter for LULC types (ex: `f_sfmax_Fs`, where `Fs` is the LULC Alias for `Forest`) [unitless];
-	 - ` f_roots_Alias` [positive real number]: temporal factor for the `roots` parameter for LULC types (ex: `f_roots_Fs`, where `Fs` is the LULC Alias for `Forest`) [unitless];
+
+|Field Name | Data Type | Description | Units|
+|:--- | :--- | :--- | :---|
+|`Q_obs ` | positive real number | Observed specific streamflow | mm/d|
+|` Flow_obs ` | positive real number | Observed streamflow | m3/s|
+|` ET_obs ` | positive real number | Observed Evapotranspiration  | mm/d|
+|` f_cpmax_Alias ` | positive real number | temporal factor for the `cpmax` parameter for LULC types (ex: `f_cpmax_Fs`, where `Fs` is the LULC Alias for `Forest`) | unitless|
+|` f_sfmax_Alias ` | positive real number | temporal factor for the `sfmax` parameter for LULC types (ex: `f_sfmax_Fs`, where `Fs` is the LULC Alias for `Forest`) | unitless|
+|` f_roots_Alias` | positive real number | temporal factor for the `roots` parameter for LULC types (ex: `f_roots_Fs`, where `Fs` is the LULC Alias for `Forest`) | unitless|
  - **File sample**: [series_sim.txt](https://github.com/ipo-exe/tklab/blob/main/samples/series_sim.txt);
  - **Formating example**:

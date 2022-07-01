@@ -40,15 +40,26 @@ def append_basic_map_reqs():
 
 def append_fields(lst_fields):
     global df_keys, lst_file
+    lst_lcl_field = list()
+    lst_lcl_dtype = list()
+    lst_lcl_descr = list()
+    lst_lcl_units = list()
     for f in lst_fields:
-        print([f])
         df_lcl = df_keys.query('Name == "{}"'.format(f.strip()))
-        print(df_lcl.to_string())
-        s_field_dtype = df_lcl['Dtype'].values[0]
-        s_field_descrp = df_lcl['Description'].values[0]
-        s_field_units = df_lcl['Units'].values[0]
-        s_aux = '\t - `{}` [{}]: {} [{}];\n'.format(f, s_field_dtype, s_field_descrp, s_field_units)
-        lst_file.append(s_aux)
+        lst_lcl_field.append('`{}`'.format(f))
+        #s_field_dtype = df_lcl['Dtype'].values[0]
+        lst_lcl_dtype.append(df_lcl['Dtype'].values[0])
+        #s_field_descrp = df_lcl['Description'].values[0]
+        lst_lcl_descr.append(df_lcl['Description'].values[0])
+        #s_field_units = df_lcl['Units'].values[0]
+        lst_lcl_units.append(df_lcl['Units'].values[0])
+        #s_aux = '\t - `{}` [{}]: {} [{}];\n'.format(f, s_field_dtype, s_field_descrp, s_field_units)
+        #lst_file.append(s_aux)
+    df_lcl = pd.DataFrame({'Field Name': lst_lcl_field,
+                           'Data Type': lst_lcl_dtype,
+                           'Description': lst_lcl_descr,
+                           'Units': lst_lcl_units})
+    append_table(df=df_lcl)
 
 
 def append_fields_head(s_fields, s_msg):
@@ -56,7 +67,7 @@ def append_fields_head(s_fields, s_msg):
     if s_fields == 'none':
         pass
     else:
-        lst_file.append(' - **{}**:\n'.format(s_msg))
+        lst_file.append(' - **{}**:\n\n'.format(s_msg))
         append_fields(lst_fields=s_fields.split('&'))
 
 #
