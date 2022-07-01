@@ -126,9 +126,37 @@ for i in range(len(lst_dfs)):
         lst_file.append('\n')
         lst_file.append(' - **Description**: {};\n'.format(s_descrp))
         lst_file.append(' - **Source**: {};\n'.format(s_source))
+        lst_file.append(' - **File sample**: [{}.{}]({}/{}.{});\n'.format(s_filename, s_extension,
+                                                                          s_dir_samples_url, s_filename, s_extension))
         lst_file.append(' - **Format**: {};\n'.format(s_format))
+        lst_file.append(' - **Formating example**:\n'.format(s_descrp))
+        if s_format == 'Time Series' or s_format == 'Data Table':
+            s_path = './samples/{}.{}'.format(s_filename, s_extension)
+            try:
+                df_sample = pd.read_csv(s_path, sep=';', dtype=str)
+                # rename columns fields
+                lst_aux = list()
+                for k in range(len(df_sample.columns)):
+                    if k < len(df_sample.columns) - 1:
+                        lst_aux.append(df_sample.columns[k] + ';')
+                    else:
+                        lst_aux.append(df_sample.columns[k])
+                df_sample.columns = lst_aux
+                # rename column values
+                for k in range(len(df_sample.columns)):
+                    s_col = df_sample.columns[k]
+                    if k < len(df_sample.columns) - 1:
+                        df_sample[s_col] = df_sample[s_col] + ';'
+                if s_format == 'Time Series':
+                    s_example = df_sample.head(7).to_string(index=False)
+                else:
+                    s_example = df_sample.to_string(index=False)
+                lst_file.append('```\n{}\n```\n'.format(s_example))
+            except FileNotFoundError:
+                pass
+
         lst_file.append(' - **Requirements**:\n')
-        print(s_filename)
+
         if s_format == 'Data Table':
             append_basic_table_reqs()
             append_fields_head(s_fields=s_mand_fields, s_msg='Mandatory Fields')
@@ -142,36 +170,7 @@ for i in range(len(lst_dfs)):
         if s_special == 'none':
             pass
 
-        lst_file.append(' - **File sample**: [{}.{}]({}/{}.{});\n'.format(s_filename, s_extension,
-                                                                          s_dir_samples_url, s_filename, s_extension))
-        lst_file.append(' - **Formating example**:\n'.format(s_descrp))
-        if s_format == 'Time Series' or s_format == 'Data Table':
-            s_path = './samples/{}.{}'.format(s_filename, s_extension)
-            try:
-                df_sample = pd.read_csv(s_path, sep=';', dtype=str)
 
-                # rename columns fields
-                lst_aux = list()
-                for k in range(len(df_sample.columns)):
-                    if k < len(df_sample.columns) - 1:
-                        lst_aux.append(df_sample.columns[k] + ';')
-                    else:
-                        lst_aux.append(df_sample.columns[k])
-                df_sample.columns = lst_aux
-
-                # rename column values
-                for k in range(len(df_sample.columns)):
-                    s_col = df_sample.columns[k]
-                    if k < len(df_sample.columns) - 1:
-                        df_sample[s_col] = df_sample[s_col] + ';'
-
-                if s_format == 'Time Series':
-                    s_example = df_sample.head(7).to_string(index=False)
-                else:
-                    s_example = df_sample.to_string(index=False)
-                lst_file.append('```\n{}\n```'.format(s_example))
-            except FileNotFoundError:
-                pass
 
 fle_md = open('iodocs.md', 'w')
 fle_md.writelines(lst_file)
