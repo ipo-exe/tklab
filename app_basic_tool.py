@@ -188,7 +188,7 @@ def run():
         # report
         print_report_msg(s_msg='Run : Task done')
         print_report_msg(s_msg='Run : Results at {}'.format(s_folder))
-        messagebox.showinfo(title='Run Status', message='Sucess. See log report for output folder.')
+        messagebox.showinfo(title='Run Status', message='Success. See log report for output folder.')
     else:
         messagebox.showwarning(title='Run Status', message='Problems found. See log report for error messages')
 

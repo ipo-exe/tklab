@@ -73,7 +73,7 @@ def append_fields_head(s_fields, s_msg):
 #
 lst_file = list()
 s_dir_samples_url = 'https://github.com/ipo-exe/tklab/blob/main/samples'
-s_file_url =  'https://github.com/ipo-exe/tklab/blob/main/iofiles.md'
+s_file_url =  'https://github.com/ipo-exe/tklab/blob/main/iodocs.md'
 # import
 df_io = pd.read_csv('iofiles.csv', sep=';')
 df_io['Source'] = df_io['Source'].str.strip()
