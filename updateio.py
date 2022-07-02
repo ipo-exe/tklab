@@ -1,6 +1,7 @@
 import pandas as pd
 import inp
 import os
+import markdown
 
 
 def append_table(df):
@@ -198,3 +199,9 @@ for cat in lst_cats:
 fle_md = open('iodocs.md', 'w')
 fle_md.writelines(lst_file)
 fle_md.close()
+
+markdown.markdownFromFile(
+    input='iodocs.md',
+    output='iodocs.html',
+    encoding='utf8',
+)
